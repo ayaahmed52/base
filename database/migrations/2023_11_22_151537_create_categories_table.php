@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
+            $table->string('name')->nullable();
             $table->string('image')->nullable();
+            $table->enum('monthly' , ['true' , 'false'])->default('false');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('categories');
     }
 };
